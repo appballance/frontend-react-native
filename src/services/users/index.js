@@ -2,13 +2,15 @@ import axios from 'axios';
 
 import {SETTINGS} from '../../settings';
 
-export const createUser = data => {
-  axios
-    .post(SETTINGS.ROUTES_BACKEND.CREATE_USER, data)
-    .then(response => {
-      return response;
-    })
-    .catch(error => {
-      console.error('There was an error!', error);
-    });
+export const createUser = async user => {
+  const request = async () => {
+    try {
+      const baseUrl = `${SETTINGS.BASE_URL}/${SETTINGS.ROUTES_BACKEND.CREATE_USER}`;
+      return await axios.post(baseUrl, user);
+    } catch (error) {
+      return error?.response;
+    }
+  };
+  const response = await request();
+  return response?.data;
 };

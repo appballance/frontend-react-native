@@ -8,6 +8,11 @@ import {Formik} from 'formik';
 import {createUser} from '../../services/users';
 
 const Register = () => {
+  const finishRegister = async values => {
+    const response = await createUser(values);
+    console.log(response);
+  };
+
   return (
     <Formik
       initialValues={{
@@ -17,10 +22,7 @@ const Register = () => {
         password1: '',
         password2: '',
       }}
-      onSubmit={values => {
-        const user = createUser(values);
-        console.log('user', user);
-      }}>
+      onSubmit={values => finishRegister(values)}>
       {({handleChange, handleBlur, handleSubmit, values}) => (
         <View>
           <TextInput
