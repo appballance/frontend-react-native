@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Register from 'views/pages/Register';
+import Pages from 'views/pages';
 
-const App = () => <Register />;
+const App = () => <Pages.Register />;
 
 export default App;
