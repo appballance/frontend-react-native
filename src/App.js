@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Register from './src/pages/Register';
+import Register from 'views/pages/Register';
 
 const App = () => <Register />;
 

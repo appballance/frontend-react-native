@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {SETTINGS} from '../../settings';
+import {SETTINGS} from 'infrastructure/shared/constants';
 
 export const createUser = async user => {
   const request = async () => {

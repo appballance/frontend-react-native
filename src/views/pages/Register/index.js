@@ -1,11 +1,9 @@
 import React from 'react';
-
+import {Formik} from 'formik';
+import {TextInput} from 'react-native-paper';
 import {StyleSheet, View, Button} from 'react-native';
 
-import {TextInput} from 'react-native-paper';
-import {Formik} from 'formik';
-
-import {createUser} from '../../services/users';
+import {createUser} from 'infrastructure/services/users';
 
 const Register = () => {
   const finishRegister = async values => {
