@@ -1,69 +1,113 @@
 import React from 'react';
-import {Formik} from 'formik';
-import {TextInput} from 'react-native-paper';
-import {StyleSheet, View, Button} from 'react-native';
+import { Formik } from 'formik';
+import { TextInput } from 'react-native-paper';
+import { StyleSheet, View, Button } from 'react-native';
 
-import {createUser} from 'infrastructure/services/users';
+import { createUser } from 'infrastructure/services/users';
 
-const Register = () => {
-  const finishRegister = async values => {
+import { formModel } from './formModel';
+import { validationSchema } from './validationSchema';
+
+export const Register = () => {
+  const { surname, fullname, email, password1, password2 } =
+    formModel.formFields;
+
+  const onSubmit = async (values) => {
     const response = await createUser(values);
     console.log(response);
   };
 
+  const hasErrorInLeftOfInput = (errors, fieldname, values) =>
+    !!errors[fieldname] && values[fieldname] === null;
+
   return (
     <Formik
       initialValues={{
-        surname: '',
-        fullname: '',
-        email: '',
-        password1: '',
-        password2: '',
+        [surname.name]: '',
+        [fullname.name]: '',
+        [email.name]: '',
+        [password1.name]: '',
+        [password2.name]: '',
       }}
-      onSubmit={values => finishRegister(values)}>
-      {({handleChange, handleBlur, handleSubmit, values}) => (
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+      validateOnMount
+      validateOnBlur>
+      {({
+        handleChange,
+        handleSubmit,
+        values,
+        isValid,
+        isSubmitting,
+        errors,
+        setFieldValue,
+      }) => (
         <View>
           <TextInput
-            placeholder="Digite aqui..."
-            placeholderTextColor="#000"
+            label={surname.label}
+            placeholder={surname.placeholder}
+            placeholderTextColor={styles.backgroundInput.color}
             style={styles.backgroundInput}
-            onChangeText={handleChange('surname')}
-            onBlur={handleBlur('surname')}
-            value={values.surname}
+            onBlur={(e) => {
+              setFieldValue(surname.name, values[surname.name] || null);
+            }}
+            onChangeText={handleChange(surname.name)}
+            value={values[surname.name]}
+            error={hasErrorInLeftOfInput(errors, surname.name, values)}
           />
           <TextInput
-            placeholder="Digite aqui..."
-            placeholderTextColor="#000"
+            label={fullname.label}
+            placeholder={fullname.placeholder}
+            placeholderTextColor={styles.backgroundInput.color}
             style={styles.backgroundInput}
-            onChangeText={handleChange('fullname')}
-            onBlur={handleBlur('fullname')}
-            value={values.fullname}
+            onBlur={() =>
+              setFieldValue(fullname.name, values[fullname.name] || null)
+            }
+            onChangeText={handleChange(fullname.name)}
+            value={values[fullname.name]}
+            error={hasErrorInLeftOfInput(errors, fullname.name, values)}
           />
           <TextInput
-            placeholder="Digite aqui..."
-            placeholderTextColor="#000"
+            label={email.label}
+            placeholder={email.placeholder}
+            placeholderTextColor={styles.backgroundInput.color}
             style={styles.backgroundInput}
-            onChangeText={handleChange('email')}
-            onBlur={handleBlur('email')}
-            value={values.email}
+            onBlur={() => setFieldValue(email.name, values[email.name] || null)}
+            onChangeText={handleChange(email.name)}
+            value={values[email.name]}
+            error={hasErrorInLeftOfInput(errors, email.name, values)}
           />
           <TextInput
-            placeholder="Digite aqui..."
-            placeholderTextColor="#000"
+            label={password1.label}
+            placeholder={password1.placeholder}
+            placeholderTextColor={styles.backgroundInput.color}
             style={styles.backgroundInput}
-            onChangeText={handleChange('password1')}
-            onBlur={handleBlur('password1')}
-            value={values.password1}
+            onBlur={() =>
+              setFieldValue(password1.name, values[password1.name] || null)
+            }
+            onChangeText={handleChange(password1.name)}
+            value={values[password1.name]}
+            error={hasErrorInLeftOfInput(errors, password1.name, values)}
+            secureTextEntry
           />
           <TextInput
-            placeholder="Digite aqui..."
-            placeholderTextColor="#000"
+            label={password2.label}
+            placeholder={password2.placeholder}
+            placeholderTextColor={styles.backgroundInput.color}
             style={styles.backgroundInput}
-            onChangeText={handleChange('password2')}
-            onBlur={handleBlur('password2')}
-            value={values.password2}
+            onBlur={() =>
+              setFieldValue(password2.name, values[password2.name] || null)
+            }
+            onChangeText={handleChange(password2.name)}
+            value={values[password2.name]}
+            error={hasErrorInLeftOfInput(errors, password2.name, values)}
+            secureTextEntry
           />
-          <Button onPress={handleSubmit} title="Submit" />
+          <Button
+            disabled={!isValid || isSubmitting}
+            onPress={handleSubmit}
+            title="Submit"
+          />
         </View>
       )}
     </Formik>
@@ -77,5 +121,3 @@ const styles = StyleSheet.create({
     color: '#000',
   },
 });
-
-export default Register;
