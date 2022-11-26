@@ -3,6 +3,8 @@ import { Formik } from 'formik';
 import { TextInput } from 'react-native-paper';
 import { StyleSheet, View, Button } from 'react-native';
 
+import { Header, PageTitle, ContentPageTitle } from './RegisterStyle';
+
 import { createUser } from 'infrastructure/services/users';
 
 import { formModel } from './formModel';
@@ -42,7 +44,10 @@ export const Register = () => {
         errors,
         setFieldValue,
       }) => (
-        <View>
+        <Header>
+          <ContentPageTitle>
+            <PageTitle>Cadastro</PageTitle>
+          </ContentPageTitle>
           <TextInput
             label={surname.label}
             placeholder={surname.placeholder}
@@ -108,7 +113,7 @@ export const Register = () => {
             onPress={handleSubmit}
             title="Submit"
           />
-        </View>
+        </Header>
       )}
     </Formik>
   );
