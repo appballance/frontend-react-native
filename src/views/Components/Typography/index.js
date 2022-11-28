@@ -6,6 +6,4 @@ const Typography = ({ children, variant }) => {
   return <Element>{children}</Element>;
 };
 
-Typography.defaultProps = TypographyDefaultProps;
-
 export { Typography };
