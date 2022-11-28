@@ -1,4 +1,4 @@
-import { Typographies } from './TypographyStyled';
+import { Typographies } from './styles';
 
 const Typography = ({ children, variant }) => {
   const Element = Typographies[variant];
