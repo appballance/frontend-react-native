@@ -9,6 +9,7 @@ import { createUser } from 'infrastructure/services/users';
 
 import { formModel } from './formModel';
 import { validationSchema } from './validationSchema';
+import { Typography } from 'views/Components/Typography';
 
 export const Register = () => {
   const { surname, fullname, email, password1, password2 } =
@@ -46,7 +47,7 @@ export const Register = () => {
       }) => (
         <Header>
           <ContentPageTitle>
-            <PageTitle>Cadastro</PageTitle>
+            <Typography variant="h1">Cadastro</Typography>
           </ContentPageTitle>
           <TextInput
             label={surname.label}
