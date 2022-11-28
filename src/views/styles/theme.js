@@ -1,10 +1,4 @@
 const theme = {
-
-}
-
-import { DefaultTheme } from 'styled-components';
-
-const theme = {
   shadow: ['0px 4px 4px rgba(0, 0, 0, 0.25)'],
   palette: {
     colors: {
@@ -26,7 +20,8 @@ const theme = {
       gradientBackground:
         'linear-gradient(114.44deg, rgb(94, 56, 168),rgb(72, 28, 167))',
       border: '#47454f',
-      gradientButton: 'linear-gradient(126.22deg, rgb(131, 96, 202) , rgb(161, 115, 255))',
+      gradientButton:
+        'linear-gradient(126.22deg, rgb(131, 96, 202) , rgb(161, 115, 255))',
       dotColor: '#DFDFDF',
     },
   },
