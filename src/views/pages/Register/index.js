@@ -3,10 +3,13 @@ import { Formik } from 'formik';
 import { TextInput } from 'react-native-paper';
 import { StyleSheet, View, Button } from 'react-native';
 
+import { Header, PageTitle, ContentPageTitle } from './RegisterStyle';
+
 import { createUser } from 'infrastructure/services/users';
 
 import { formModel } from './formModel';
 import { validationSchema } from './validationSchema';
+import { Typography } from 'views/Components/Typography';
 
 export const Register = () => {
   const { surname, fullname, email, password1, password2 } =
@@ -42,7 +45,10 @@ export const Register = () => {
         errors,
         setFieldValue,
       }) => (
-        <View>
+        <Header>
+          <ContentPageTitle>
+            <Typography variant="h1">Cadastro</Typography>
+          </ContentPageTitle>
           <TextInput
             label={surname.label}
             placeholder={surname.placeholder}
@@ -108,7 +114,7 @@ export const Register = () => {
             onPress={handleSubmit}
             title="Submit"
           />
-        </View>
+        </Header>
       )}
     </Formik>
   );

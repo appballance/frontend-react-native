@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Pages from 'views/pages';
+import { Routes } from 'application /routes';
 
-const App = () => <Pages.Register />;
+function App() {
+  return <Routes />;
+}
 
 export default App;
