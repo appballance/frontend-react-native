@@ -1,9 +1,11 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { TextInput } from 'react-native-paper';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import { Header, PageTitle, ContentPageTitle } from './RegisterStyle';
+
+import Button from '../../Components/Button';
 
 import { createUser } from 'infrastructure/services/users';
 
@@ -46,9 +48,6 @@ export const Register = () => {
         setFieldValue,
       }) => (
         <Header>
-          <ContentPageTitle>
-            <Typography variant="h1">Cadastro</Typography>
-          </ContentPageTitle>
           <TextInput
             label={surname.label}
             placeholder={surname.placeholder}
@@ -109,11 +108,7 @@ export const Register = () => {
             error={hasErrorInLeftOfInput(errors, password2.name, values)}
             secureTextEntry
           />
-          <Button
-            disabled={!isValid || isSubmitting}
-            onPress={handleSubmit}
-            title="Submit"
-          />
+          <Button onPress={handleSubmit}>Cadastrar</Button>
         </Header>
       )}
     </Formik>
