@@ -1,14 +1,16 @@
 import React from 'react';
-
+import { Provider as PaperProvider } from 'react-native-paper';
 import { Routes } from 'application /routes';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from 'views/styles/theme';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Routes />
-    </ThemeProvider>
+    <PaperProvider>
+      <ThemeProvider theme={theme}>
+        <Routes />
+      </ThemeProvider>
+    </PaperProvider>
   );
 }
 
