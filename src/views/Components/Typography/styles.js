@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 const h1 = styled.Text`
   color: ${({ theme, color }) =>
@@ -7,10 +7,11 @@ const h1 = styled.Text`
       : theme.palette.colors.dark.gray};
   font-family: ${({ theme }) => theme.typography.h1.fontFamily};
   font-weight: ${({ theme }) => theme.typography.h1.fontWeight};
+  font-size: ${({ theme }) => theme.typography.h1.fontSize};
 `;
 
 const h2 = styled.Text`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.typography.h2.fontSize};
   color: ${({ theme, color }) =>
     color === 'white'
       ? theme.palette.colors.white
@@ -20,12 +21,12 @@ const h2 = styled.Text`
 `;
 
 const body1 = styled.Text`
-  font-size: ${({ theme }) => theme.typography.body1?.fontSizeText};
   color: ${({ theme, color }) =>
     color === 'white'
       ? theme.palette.colors.white
       : theme.palette.colors.dark.gray};
   font-family: ${({ theme }) => theme.typography.body1?.fontFamily};
+  font-size: ${({ theme }) => theme.typography.body1.fontSize};
 `;
 
 const Typographies = {
