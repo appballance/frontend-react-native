@@ -21,14 +21,17 @@ const theme = {
     h1: {
       fontFamily: 'Inter-Black',
       fontWeight: 600,
+      fontSize: '30px',
     },
     h2: {
       fontFamily: 'Inter-Black',
       fontWeight: 400,
+      fontSize: '20px',
     },
     body1: {
       fontFamily: 'Inter-Black',
       fontWeight: 400,
+      fontSize: '20px',
     },
   },
 };
