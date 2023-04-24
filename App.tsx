@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Routes from './src/routes';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/commons/styles/theme';
 
 const App = () => {
