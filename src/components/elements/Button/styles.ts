@@ -1,37 +1,44 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components/native';
 import styled from 'styled-components/native';
 
-export const Button = styled.TouchableOpacity<{ $size: string }>`
+export const Button = styled.TouchableOpacity<{
+  width: string;
+  height: string;
+  variant: string;
+  $disabled?: boolean;
+}>`
   /* flex: 1; */
+
+  box-sizing: border-box;
 
   justify-content: center;
   align-items: center;
 
-  border-radius: 12px;
-  width: 80%;
-  height: 20%;
+  border-radius: 16px;
+  width: ${({ width }) => (width ? width : 'auto')};
+  height: ${({ height }) => (height ? height : 'auto')};
 
-  ${({ $size }) =>
-    $size === 'small' &&
+  ${({ variant }) =>
+    variant === 'contained' &&
     css`
-      width: 50%;
-      height: 20%;
+      background-color: ${props => props.theme.palette.colors.primary.main};
     `}
 
-  ${({ $size }) =>
-    $size === 'medium' &&
+  ${({ theme, variant, $disabled }) =>
+    variant === 'text' &&
     css`
-      width: 70%;
-      height: 20%;
+      background-color: ${$disabled
+        ? theme.palette.colors.gray.main
+        : 'transparent'};
+      border: none;
     `}
 
-    
-  ${({ $size }) =>
-    $size === 'large' &&
-    css`
-      width: 90%;
-      height: 20%;
-    `}
 
-  background-color: ${props => props.theme.palette.colors.primary.main};
+    ${({ variant, theme }) =>
+    variant === 'outlined' &&
+    css`
+      background-color: transparent;
+      border: 2px solid ${theme.palette.colors.primary.main};
+      overflow: hidden;
+    `}
 `;
