@@ -11,7 +11,7 @@ const theme: ITheme = {
 
       black: { main: '#000000' },
       white: { main: '#fff' },
-      gray: { main: '#2C2834', light: '#F9F7FB', dark: '#47454F' },
+      gray: { main: '#47454F', light: '#F9F7FB', dark: '#2C2834' },
     },
   },
 };
