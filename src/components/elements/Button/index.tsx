@@ -9,7 +9,7 @@ function Button({
   variant = 'contained',
   width = '150px',
   height = '100px',
-  disabled,
+  disabled = false,
   ...props
 }: IButton) {
   return (
