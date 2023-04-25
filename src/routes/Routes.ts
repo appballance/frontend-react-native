@@ -12,7 +12,7 @@ const routes: Route[] = [
   {
     name: 'Register',
     component: Register,
-    options: { headerShown: true },
+    options: { headerShown: false },
   },
 ];
 
