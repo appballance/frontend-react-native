@@ -1,20 +1,16 @@
-import { View, Text, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import React from 'react';
-import Button from '../../components/elements/Button';
 import Typography from '../../components/elements/Typography';
-import { theme } from '../../commons/styles/theme';
+import Button from '../../components/elements/Button';
 
 const Register = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Typography
-        color={theme.palette.colors.black.main}
-        margin="10"
-        fsize="100">
+      <Typography color="red" fontSize="16px" margin="0">
         Cadastro
       </Typography>
-      <Button size="medium">
-        <Text>index </Text>
+      <Button width="100px" height="30px">
+        cadastrar
       </Button>
     </SafeAreaView>
   );
