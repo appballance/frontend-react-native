@@ -12,5 +12,5 @@ export const Label = styled.Text``;
 export const Input = styled.TextInput`
   width: 100%;
   height: 50px;
-  padding-left: 15px;
+  padding-left: 10px;
 `;
