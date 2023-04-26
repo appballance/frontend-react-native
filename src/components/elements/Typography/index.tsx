@@ -3,9 +3,9 @@ import { ITypography } from './@types';
 
 import * as S from './styles';
 
-const Typography = ({ margin, color, fsize, children }: ITypography) => {
+const Typography = ({ margin, color, fontSize, children }: ITypography) => {
   return (
-    <S.StyledTypgraphy $color={color} $fsize={fsize} $margin={margin}>
+    <S.StyledTypgraphy $color={color} $fsize={fontSize} $margin={margin}>
       {children}
     </S.StyledTypgraphy>
   );
