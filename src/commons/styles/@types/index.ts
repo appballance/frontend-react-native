@@ -14,4 +14,9 @@ export interface IPalette {
 
 export interface ITheme {
   palette: IPalette;
+  typography: {
+    regular: string;
+    bold: string;
+    thin: string;
+  };
 }
