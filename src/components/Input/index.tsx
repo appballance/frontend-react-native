@@ -4,7 +4,7 @@ import * as S from './styles';
 
 import { InputProps } from './@types';
 
-const Input = ({ value, placeholder, onChangeText }: InputProps) => {
+const Input = ({ value, placeholder, onChangeText, ...props }: InputProps) => {
   return (
     <S.InputContainer>
       {!!value?.length && <S.Label>{placeholder}</S.Label>}
@@ -12,6 +12,7 @@ const Input = ({ value, placeholder, onChangeText }: InputProps) => {
         placeholder={placeholder}
         onChangeText={onChangeText}
         value={value}
+        {...props}
       />
     </S.InputContainer>
   );
