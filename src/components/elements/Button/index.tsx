@@ -2,7 +2,8 @@ import React from 'react';
 
 import * as S from './styles';
 import { IButton } from './@types';
-import { Text } from 'react-native';
+
+import Typography from '../Typography';
 
 function Button({
   children,
@@ -22,7 +23,7 @@ function Button({
       disabled={disabled}
       $disabled={disabled}
       {...props}>
-      <Text>{children}</Text>
+      <Typography>{children}</Typography>
     </S.Button>
   );
 }
