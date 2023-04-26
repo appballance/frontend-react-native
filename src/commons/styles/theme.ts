@@ -14,5 +14,11 @@ const theme: ITheme = {
       gray: { main: '#47454F', light: '#F9F7FB', dark: '#2C2834' },
     },
   },
+
+  typography: {
+    regular: 'Jost-Regular',
+    bold: 'Jost-Regular',
+    thin: 'Jost-Thin',
+  },
 };
 export { theme };
