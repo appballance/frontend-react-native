@@ -10,14 +10,14 @@ const theme: ITheme = {
       text: { main: '#0C011B' },
 
       black: { main: '#000000' },
-      white: { main: '#fff' },
+      white: { main: '#FFFFFF' },
       gray: { main: '#47454F', light: '#F9F7FB', dark: '#2C2834' },
     },
   },
 
   typography: {
     regular: 'Jost-Regular',
-    bold: 'Jost-Regular',
+    bold: 'Jost-Bold',
     thin: 'Jost-Thin',
   },
 };

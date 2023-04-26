@@ -8,6 +8,7 @@ import Input from '../../components/Input';
 import { Formik } from 'formik';
 import { IRegisterForm } from './@types/formikTypes';
 import FormRegister from './Forms';
+import { theme } from '../../commons/styles/theme';
 
 const Register = () => {
   const initialValues = {
@@ -22,20 +23,26 @@ const Register = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <S.ContainerHeader>
-        <Typography fontSize="25px" margin="0">
-          Cadastro
-        </Typography>
-      </S.ContainerHeader>
-      <S.ContainerForms>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          {({ }) => <FormRegister />}
-        </Formik>
-      </S.ContainerForms>
-      <Button width="100px" height="30px">
-        cadastrar
-      </Button>
-      <Typography>Olá pessoas</Typography>
+      <S.Container>
+        <S.ContainerHeader>
+          <Typography fontSize="25px" margin="0">
+            Cadastro
+          </Typography>
+        </S.ContainerHeader>
+        <S.ContainerForms>
+          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+            {({ }) => <FormRegister />}
+          </Formik>
+        </S.ContainerForms>
+        <S.ContainerButton>
+          <S.StyledButtonLoading
+            color={theme.palette.colors.white.main}
+            fontSize="18px"
+            fontFamily={theme.typography.regular}>
+            cadastrar
+          </S.StyledButtonLoading>
+        </S.ContainerButton>
+      </S.Container>
     </SafeAreaView>
   );
 };

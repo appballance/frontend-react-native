@@ -4,45 +4,39 @@ import { useFormikContext } from 'formik';
 import Input from '../../../components/Input';
 import { IRegisterForm } from '../@types/formikTypes';
 
+import * as S from './styles';
+
 const FormRegister = () => {
-  const { handleChange } = useFormikContext<IRegisterForm>();
+  const { handleChange, values } = useFormikContext<IRegisterForm>();
 
   return (
-    <View>
+    <S.Container>
       <Input
         placeholder="Apelido"
-        value=""
+        value={values.surname}
         onChangeText={handleChange('surname')}
       />
       <Input
         placeholder="Nome Completo"
-        value=""
-        onChangeText={value => {
-          console.log(value);
-        }}
+        value={values.fullName}
+        onChangeText={handleChange('fullName')}
       />
       <Input
         placeholder="E-mail"
-        value=""
-        onChangeText={value => {
-          console.log(value);
-        }}
+        value={values.email}
+        onChangeText={handleChange('email')}
       />
       <Input
         placeholder="Senha"
-        value=""
-        onChangeText={value => {
-          console.log(value);
-        }}
+        value={values.password}
+        onChangeText={handleChange('password')}
       />
       <Input
         placeholder="Confirmar Senha"
-        value=""
-        onChangeText={value => {
-          console.log(value);
-        }}
+        value={values.confirmPassword}
+        onChangeText={handleChange('confirmPassword')}
       />
-    </View>
+    </S.Container>
   );
 };
 

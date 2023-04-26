@@ -11,6 +11,9 @@ function Button({
   width = '150px',
   height = '100px',
   disabled = false,
+  fontSize,
+  fontFamily,
+  color,
   ...props
 }: IButton) {
   return (
@@ -23,7 +26,9 @@ function Button({
       disabled={disabled}
       $disabled={disabled}
       {...props}>
-      <Typography>{children}</Typography>
+      <Typography color={color} fontFamily={fontFamily} fontSize={fontSize}>
+        {children}
+      </Typography>
     </S.Button>
   );
 }
