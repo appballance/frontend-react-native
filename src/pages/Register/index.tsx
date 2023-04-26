@@ -6,12 +6,13 @@ import Button from '../../components/elements/Button';
 const Register = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Typography color="red" fontSize="16px" margin="0">
+      <Typography color="red" fontSize="50px" margin="0">
         Cadastro
       </Typography>
       <Button width="100px" height="30px">
         cadastrar
       </Button>
+      <Typography>Olá pessoas</Typography>
     </SafeAreaView>
   );
 };
