@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html, body, #root, button, input, select, textarea, p {
-    font: 14px 'Jost Regular';
+    
     color: ${({ theme: { colors } }) => colors.blue_1};
   }
 `;
