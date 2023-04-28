@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "types": [ 
+      "node",
+      "@types/styled-components-react-native"
+    ]
+  },
+}

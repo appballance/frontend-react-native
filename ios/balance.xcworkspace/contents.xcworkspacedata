@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:balance.xcodeproj">
+      location = "group:/Users/henrique.canelzo/Documents/Balance/frontend-react-native/ios/balance.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
