@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 const Routes = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Register">
+      <Stack.Navigator initialRouteName="Login">
         {routes.map((route, index) => (
           <Stack.Screen
             key={index}

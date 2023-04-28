@@ -1,5 +1,6 @@
 import React from 'react';
 import Register from '../pages/Register';
+import Login from '../pages/Login';
 
 type Route = {
   name: string;
@@ -15,6 +16,13 @@ const routes: Route[] = [
       headerTransparent: true,
       headerTitle: 'voltar',
       // headerLeft: ({ }) => <ButtonBack />,
+    },
+  },
+  {
+    name: 'Login',
+    component: Login,
+    options: {
+      headerShown: false,
     },
   },
 ];
