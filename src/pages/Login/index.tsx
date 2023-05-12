@@ -4,15 +4,16 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  SafeAreaView,
   ScrollView,
-  View,
+  // View,
 } from 'react-native';
 import { Formik } from 'formik';
 
 import * as S from './styles';
 import Input from '../../components/Input';
 import Typography from '../../components/elements/Typography';
-import Button from '../../components/elements/Button';
+import LogoPurple from '../../assets/icons/logoPurple.svg';
 
 function Login() {
   const initialValues = {
@@ -21,44 +22,47 @@ function Login() {
   };
 
   return (
-    <View>
-      <S.ContainerLogo>
-        <Image
-          source={require('../../../assets/icons/logo-purple.png')}
-          style={{ width: 100, height: 100 }}
-        />
-      </S.ContainerLogo>
-      <Formik initialValues={initialValues} onSubmit={() => { }}>
-        {({ handleChange, values }) => (
+    <Formik initialValues={initialValues} onSubmit={() => { }}>
+      {({ handleChange, values }) => (
+        <SafeAreaView style={{ flex: 1 }}>
           <KeyboardAvoidingView
             behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
-            keyboardVerticalOffset={20}>
-            <ScrollView>
+            style={{ height: 'auto' }}
+            keyboardVerticalOffset={0}>
+            <ScrollView style={{ height: '100%' }}>
+              <S.ContainerLogo>
+                <LogoPurple width={150} height={300} />
+              </S.ContainerLogo>
               <S.ContainerForms>
                 <Input
                   placeholder="E-mail"
                   value={values.email}
                   onChangeText={handleChange('email')}
+                  marginBottom="40px"
+                  placeholderTextColor="#141b4153"
+                  labelColor="#141b4153"
                 />
                 <Input
                   placeholder="Senha"
                   value={values.password}
-                  onChangeText={handleChange('email')}
+                  onChangeText={handleChange('password')}
+                  placeholderTextColor="#141b4153"
+                  labelColor="#141b4153"
                 />
                 <S.ContainerResetPassoword>
                   <Typography>Esqueceu sua senha?</Typography>
                   <S.ButtonResetPassword>Redefinir</S.ButtonResetPassword>
                 </S.ContainerResetPassoword>
               </S.ContainerForms>
-              <S.ContainerRegiter>
+              <S.ContainerRegister>
                 <Typography>Ainda não tem cadastro?</Typography>
                 <S.ButtonRegister>Cadastre-se.</S.ButtonRegister>
-              </S.ContainerRegiter>
+              </S.ContainerRegister>
             </ScrollView>
           </KeyboardAvoidingView>
-        )}
-      </Formik>
-    </View>
+        </SafeAreaView>
+      )}
+    </Formik>
   );
 }
 
