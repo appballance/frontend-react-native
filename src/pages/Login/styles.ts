@@ -10,14 +10,16 @@ export const ContainerForms = styled.View`
   justify-content: center;
   margin: 20px;
   flex: 1;
+  height: 200px;
 `;
 
 export const ContainerLogo = styled.View`
   width: 100%;
-  height: 50%;
-
+  height: 200px;
   justify-content: center;
   align-items: center;
+
+  margin-top: 10%;
 `;
 
 export const ContainerResetPassoword = styled.View`
@@ -39,12 +41,14 @@ export const ButtonRegister = styled(Button).attrs({
   color: theme.palette.colors.primary.main,
 })`
   width: 90px;
+  align-items: flex-end;
+  justify-content: flex-end;
 `;
 
-export const ContainerRegiter = styled.View`
+export const ContainerRegister = styled.View`
   flex-direction: row;
+  justify-content: center;
   flex: 1;
-  height: 50px;
-  align-items: center;
-  background-color: aqua;
+  height: 200px;
+  align-items: flex-end;
 `;
