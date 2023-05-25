@@ -7,18 +7,18 @@ export const authenticateUser = async ({
   password,
 }: IAuthenticateUser) => {
   const isAuth = false;
-  const response: IServicePost = await ServicePost(
-    'auth',
-    {
-      email,
-      password,
-    },
-    isAuth,
-  );
+  // const response: IServicePost = await ServicePost(
+  //   'auth',
+  //   {
+  //     email,
+  //     password,
+  //   },
+  //   isAuth,
+  // );
 
-  if (!response?.token) {
-    return response;
-  }
+  // if (!response?.token) {
+  //   return response;
+  // }
 
   AsyncStorage.setItem('token', response.token);
   return response;
