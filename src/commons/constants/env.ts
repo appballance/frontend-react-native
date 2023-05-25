@@ -1,7 +1,10 @@
-const {
+const STAGE = {
   // API
 
-  REACT_NATIVE_BASE_API: BASE_API,
-} = process.env;
+  __DEV__: {
+    BASE_API:
+      'https://xfdewphuedg6qmsoha4ngq3kha0gkxdq.lambda-url.sa-east-1.on.aws',
+  },
+};
 
-export { BASE_API };
+export { STAGE };
