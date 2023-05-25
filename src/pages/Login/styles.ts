@@ -4,13 +4,14 @@ import { theme } from '../../commons/styles/theme';
 
 export const Container = styled.View`
   flex: 1;
+  background-color: aqua;
 `;
 
 export const ContainerForms = styled.View`
   justify-content: center;
   margin: 20px;
   flex: 1;
-  height: 200px;
+  height: 280px;
 `;
 
 export const ContainerLogo = styled.View`
@@ -22,11 +23,17 @@ export const ContainerLogo = styled.View`
   margin-top: 10%;
 `;
 
-export const ContainerResetPassoword = styled.View`
+export const ContainerResetPassword = styled.View`
   flex-direction: row;
 
   height: 50px;
   align-items: center;
+`;
+
+export const ContainerButton = styled.View`
+  height: 80px;
+  align-items: center;
+  justify-content: flex-end;
 `;
 
 export const ButtonResetPassword = styled(Button).attrs({
@@ -49,6 +56,6 @@ export const ContainerRegister = styled.View`
   flex-direction: row;
   justify-content: center;
   flex: 1;
-  height: 200px;
+  height: 150px;
   align-items: flex-end;
 `;
