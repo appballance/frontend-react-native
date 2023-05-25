@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { BASE_API } from '../../commons/constants/env';
+import { STAGE } from '../../commons/constants/env';
 // import { IServicePost } from '../@types';
 
 export const ServiceGet = async (path: string) => {
@@ -13,13 +13,13 @@ export const ServiceGet = async (path: string) => {
     },
   };
 
-  const url = `${BASE_API}/${path}`;
+  const url = `${STAGE.__DEV__.BASE_API}/${path}`;
   const response = await axios.get(url, config);
   return response.data;
 };
 
 export const ServicePost = async (path: string, body: any, isAuth = false) => {
-  const url = `${BASE_API}/${path}`;
+  const url = `${STAGE.__DEV__.BASE_API}/${path}`;
   console.log('LOG URL::', url);
   const token = AsyncStorage.getItem('token');
 
