@@ -1,21 +1,30 @@
 import React from 'react';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
+import { theme } from '../commons/styles/theme';
+import Arrow from '../assets/icons/arrowLeft.svg';
+import Button from '../components/elements/Button';
+import { Stack } from '.';
 
-type Route = {
-  name: string;
-  component: React.ComponentType;
-  options?: {};
-};
-
-const routes: Route[] = [
+const routes: Array<React.ComponentProps<typeof Stack.Screen>> = [
   {
     name: 'Register',
     component: Register,
     options: {
-      headerTransparent: true,
-      headerTitle: 'voltar',
-      // headerLeft: ({ }) => <ButtonBack />,
+      headerShadowVisible: false,
+      headerStyle: {
+        backgroundColor: theme.palette.colors.white.main,
+      },
+      headerTitle: 'Voltar',
+      headerTitleStyle: {
+        fontSize: 15,
+        fontFamily: theme.typography.regular,
+      },
+      headerLeft: ({ }) => (
+        <Button variant="text" height="auto" width="50px">
+          <Arrow width={22} height={22} />
+        </Button>
+      ),
     },
   },
   {

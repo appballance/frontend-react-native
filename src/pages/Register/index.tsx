@@ -1,4 +1,9 @@
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+} from 'react-native';
 import React from 'react';
 import Typography from '../../components/elements/Typography';
 
@@ -7,6 +12,8 @@ import { Formik } from 'formik';
 import { IRegisterForm } from './@types/formikTypes';
 import FormRegister from './Forms';
 import { theme } from '../../commons/styles/theme';
+import { schemaValidationRegister } from './validationSchema';
+import { useHeaderHeight } from '@react-navigation/elements';
 
 const Register = () => {
   const initialValues = {
@@ -19,16 +26,28 @@ const Register = () => {
 
   const handleSubmit = async (values: IRegisterForm) => { };
 
+  const height = useHeaderHeight();
+
+  console.log(height);
+
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={schemaValidationRegister}>
+      {({ handleSubmit }) => (
         <KeyboardAvoidingView
-          behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
-          keyboardVerticalOffset={-250}
-          style={{ width: '100%', height: '100%', flex: 1 }}>
-          <S.Container>
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={{ flex: 1 }}
+          keyboardVerticalOffset={height + 20}>
+          <S.StScrollView>
+            {/* <S.Container> */}
+
             <S.ContainerHeader>
-              <Typography fontSize="25px" margin="0">
+              <Typography
+                fontSize="25px"
+                fontFamily={theme.typography.bold}
+                margin="0">
                 Cadastro
               </Typography>
             </S.ContainerHeader>
@@ -36,17 +55,13 @@ const Register = () => {
               <FormRegister />
             </S.ContainerForms>
             <S.ContainerButton>
-              <S.StyledButtonLoading
-                color={theme.palette.colors.white.main}
-                fontSize="18px"
-                fontFamily={theme.typography.regular}>
-                cadastrar
-              </S.StyledButtonLoading>
+              <S.StyledButtonLoading>cadastrar</S.StyledButtonLoading>
             </S.ContainerButton>
-          </S.Container>
+            {/* </S.Container> */}
+          </S.StScrollView>
         </KeyboardAvoidingView>
-      </Formik>
-    </ScrollView>
+      )}
+    </Formik>
   );
 };
 
